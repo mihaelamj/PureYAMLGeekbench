@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      full_benchmark:
+        description: "Run the full 114-file Geekbench"
+        required: false
+        default: "false"
+
+jobs:
+  benchmark:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Build
+        run: swift build
+      - name: Smoke benchmark
+        if: github.event.inputs.full_benchmark != 'true'
+        run: swift run -c release pureyaml-geekbench --limit 10
+      - name: Full benchmark
+        if: github.event.inputs.full_benchmark == 'true'
+        run: bash scripts/run-geekbench.sh
+      - name: Upload artifacts
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: pureyaml-geekbench-${{ runner.os }}-${{ github.sha }}
+          path: .build/geekbench-artifacts
+          retention-days: 30

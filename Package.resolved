@@ -1,0 +1,33 @@
+{
+  "originHash" : "0aa793eba73ab68925bdec69756aec32252135258a7fe573305a7d60df961db9",
+  "pins" : [
+    {
+      "identity" : "pureyaml",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mihaelamj/PureYAML.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "57c48cb4e14e9934770f4ce167d0d0acf028d011"
+      }
+    },
+    {
+      "identity" : "swift-yaml",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/1amageek/swift-yaml.git",
+      "state" : {
+        "revision" : "5fffa00a9e84423aa44b71e94b16a55b623e3643",
+        "version" : "0.3.0"
+      }
+    },
+    {
+      "identity" : "yams",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jpsim/Yams.git",
+      "state" : {
+        "revision" : "3d6871d5b4a5cd519adf233fbb576e0a2af71c17",
+        "version" : "5.4.0"
+      }
+    }
+  ],
+  "version" : 3
+}
